@@ -85,9 +85,9 @@ Check out the [deployment documentation](https://docs.astro.build/en/guides/depl
 
 ### Modules/Plugins
 
-- [VueUse](https://vueuse.org/) - collection of essential Vue composition utilities.
 - [Pinegrow Astro Module](https://www.npmjs.com/package/@pinegrow/astro-module) - enables you to live-design your Vue single-file components visually in Vue Designer.
 - [Pinegrow Tailwind CSS Plugin](https://www.npmjs.com/package/@pinegrow/tailwindcss-plugin) - via Design Panel, enables visual controls customization (automatic) and theme customization (optional).
+- [VueUse](https://vueuse.org/) - collection of essential Vue composition utilities.
 
 ### Devtools
 
