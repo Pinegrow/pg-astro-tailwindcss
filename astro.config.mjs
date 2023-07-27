@@ -1,4 +1,3 @@
-import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'astro/config'
 import vue from '@astrojs/vue'
 import tailwind from '@astrojs/tailwind'
@@ -8,7 +7,7 @@ import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
 
 import Pinegrow from '@pinegrow/astro-module'
-// import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
 import AutoImportComponents from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/astro'
 import presetIcons from '@unocss/preset-icons'

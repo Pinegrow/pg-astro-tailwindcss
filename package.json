@@ -5,7 +5,7 @@
   "homepage": "https://pg-astro-tailwindcss.netlify.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/techakayy/pg-astro-tailwindcss.git"
+    "url": "https://github.com/pinegrow/pg-astro-tailwindcss.git"
   },
   "scripts": {
     "dev": "astro dev",
@@ -13,7 +13,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "vue-devtools": "vue-devtools"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
