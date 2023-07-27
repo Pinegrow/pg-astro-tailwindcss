@@ -5,7 +5,6 @@
   import { classNames } from '../utils'
   import { colors } from '../utils/colors'
   import appConfig from '../ui'
-  import BaseIcon from './BaseIcon.vue'
 
   const props = defineProps({
     type: {
@@ -207,12 +206,34 @@
   })
 </script>
 <template>
-    <component :is="buttonIs" :class="buttonClass" :aria-label="ariaLabel" v-bind="buttonProps">
-        <BaseIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="leadingIconClass" aria-hidden="true" height="24px"/>
-        <slot><span v-if="label" :class="[truncate ? 'text-left break-all line-clamp-1' : '']">
-        {{ label }} </span>
-        </slot>
-        <BaseIcon v-if="isTrailing && trailingIconName" :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" height="24px"/>
-    </component>
+  <component
+    :is="buttonIs"
+    :class="buttonClass"
+    :aria-label="ariaLabel"
+    v-bind="buttonProps"
+  >
+    <BaseIcon
+      v-if="isLeading && leadingIconName"
+      :name="leadingIconName"
+      :class="leadingIconClass"
+      aria-hidden="true"
+      height="24px"
+    />
+    <slot
+      ><span
+        v-if="label"
+        :class="[truncate ? 'text-left break-all line-clamp-1' : '']"
+      >
+        {{ label }}
+      </span>
+    </slot>
+    <BaseIcon
+      v-if="isTrailing && trailingIconName"
+      :name="trailingIconName"
+      :class="trailingIconClass"
+      aria-hidden="true"
+      height="24px"
+    />
+  </component>
 </template>
 <style scoped></style>

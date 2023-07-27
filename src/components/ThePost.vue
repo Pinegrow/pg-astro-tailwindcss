@@ -1,7 +1,4 @@
-<script setup lang="ts">
-  import BaseButton from './BaseButton.vue'
-  import TheHeader from './TheHeader.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="mt-24 pb-12">

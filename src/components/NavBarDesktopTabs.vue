@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { isCurrentRoute } from '../composables/nav'
-  import BaseButton from './BaseButton.vue'
 
   defineProps({
     navlinks: {

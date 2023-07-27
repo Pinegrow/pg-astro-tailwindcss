@@ -2,7 +2,6 @@
   import { useMobileMenu } from '../composables/mobile-menu'
   import { isCurrentRoute } from '../composables/nav'
   const { isMobileMenuOpen } = useMobileMenu()
-  import BaseButton from './BaseButton.vue'
 
   defineProps({
     navlinks: {

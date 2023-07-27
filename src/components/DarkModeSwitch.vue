@@ -1,7 +1,5 @@
 <script setup lang="ts">
   import { isDark, toggleDark } from '../composables/dark'
-  import BaseIcon from './BaseIcon.vue'
-  import BaseButton from './BaseButton.vue'
 </script>
 <template>
   <BaseButton

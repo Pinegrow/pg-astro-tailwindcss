@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import BaseIcon from './BaseIcon.vue'
   // const props = defineProps({
   // 	name: {
   // 		type: String,

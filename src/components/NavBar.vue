@@ -1,10 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue'
   import { useNav } from '../composables/nav'
-  import NavBarDesktopTabs from './NavBarDesktopTabs.vue'
-  import NavBarMobileMenu from './NavBarMobileMenu.vue'
-  import NavBarMobileMenuButton from './NavBarMobileMenuButton.vue'
-  import DarkModeSwitch from './DarkModeSwitch.vue'
 
   const { navlinks, currentPath } = useNav()
   const desktopNavTabs = computed(() => {

@@ -1,24 +1,24 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'astro/config'
 import vue from '@astrojs/vue'
-import pinegrow from '@pinegrow/astro-module'
-// import { fileURLToPath, URL } from 'node:url'
-
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import preact from '@astrojs/preact'
 import svelte from '@astrojs/svelte'
+import mdx from '@astrojs/mdx'
+
+import Pinegrow from '@pinegrow/astro-module'
+// import { fileURLToPath, URL } from 'node:url'
+import AutoImportComponents from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/astro'
 import presetIcons from '@unocss/preset-icons'
 // import VueDevTools from 'vite-plugin-vue-devtools'
-
-import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     vue(),
-    pinegrow({
+    Pinegrow({
       liveDesigner: {
         iconPreferredCase: 'unocss',
         // default value (can be removed), unocss by default uses the unocss format for icon names
@@ -58,6 +58,11 @@ export default defineConfig({
   ],
   vite: {
     plugins: [
+      AutoImportComponents({
+        // dirs: ['src/components'], // default
+        // resolvers: [], // Auto-import using resolvers
+        dts: 'components.d.ts',
+      }),
       // VueDevTools()
     ],
     resolve: {

@@ -9,6 +9,10 @@
     },
     "jsxImportSource": "preact",
     "strict": false,
-    "allowJs": true
+    "allowJs": true,
+    "include": [
+      //...
+      "components.d.ts"
+    ]
   }
 }
