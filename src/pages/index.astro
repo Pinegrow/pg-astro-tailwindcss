@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro'
+import HeroSection from '../components/HeroSection.vue'
+import AboutTemplate from '../components/AboutTemplate.vue'
+import WalkThrough from '../components/WalkThrough.vue'
+const name = "I'm a hero!"
+---
+
+<Layout title="Vue Designer Astro Tailwind CSS - Quick start template">
+  <HeroSection client:load />
+  <AboutTemplate client:visible />
+  <WalkThrough client:visible />
+</Layout>
+<style></style>
