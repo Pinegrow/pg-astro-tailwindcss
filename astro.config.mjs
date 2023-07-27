@@ -28,9 +28,6 @@ export default defineConfig({
           configPath: 'tailwind.config.ts',
           cssPath: '@/assets/css/tailwind.css',
         },
-        experimental: {
-          metaFrameworks: ['astro'],
-        },
         // plugins: [
         //   {
         //     name: 'My Awesome Lib 3.0',
