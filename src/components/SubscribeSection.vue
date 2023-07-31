@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  // definePageMeta({
-  //   title: 'Volunteer',
-  //   tags: [],
-  //   navOrder: 6,
+  // const props = defineProps({
+  // 	name: {
+  // 		type: String,
+  // 		default: 'SubscribeSection',
+  // 	},
   // })
 </script>
 <template>
