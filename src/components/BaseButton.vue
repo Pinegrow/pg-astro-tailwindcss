@@ -212,6 +212,7 @@
     :aria-label="ariaLabel"
     v-bind="buttonProps"
   >
+    <slot name="leading"></slot>
     <BaseIcon
       v-if="isLeading && leadingIconName"
       :name="leadingIconName"
@@ -234,6 +235,7 @@
       aria-hidden="true"
       height="24px"
     />
+    <slot name="trailing"></slot>
   </component>
 </template>
 <style scoped></style>
