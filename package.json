@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.51",
-    "@pinegrow/astro-module": "latest",
+    "@pinegrow/astro-module": "^3.0.4",
     "@pinegrow/tailwindcss-plugin": "latest",
     "@pinegrow/vite-plugin": "latest",
     "@tailwindcss/forms": "^0.5.3",
