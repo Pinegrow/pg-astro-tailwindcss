@@ -44,6 +44,7 @@
     "@pinegrow/vite-plugin": "latest",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "^20.5.0",
     "@unocss/preset-icons": "^0.51.4",
     "@vue/devtools": "^6.5.0",
     "npm-run-all": "^4.1.5",
