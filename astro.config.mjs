@@ -13,16 +13,20 @@ import AutoImportAPIs from 'unplugin-auto-import/astro'
 import Unocss from 'unocss/astro'
 import presetIcons from '@unocss/preset-icons'
 // import VueDevTools from 'vite-plugin-vue-devtools'
+// import myAstroModule from './src/modules/my-module'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    vue(),
+    // myAstroModule,
+    vue({
+      appEntrypoint: '/src/app',
+    }),
     Pinegrow({
       liveDesigner: {
         iconPreferredCase: 'unocss',
         // default value (can be removed), unocss by default uses the unocss format for icon names
-        devtoolsKey: 'devtools',
+        devtoolsKey: 'devtools', // see app.ts
         // see app.ts
         tailwindcss: {
           configPath: 'tailwind.config.ts',
@@ -62,19 +66,22 @@ export default defineConfig({
         /.vue$/,
         /.vue?vue/, // .vue
         /.md$/, // .md
+        /.mdx$/, // .mdx
       ],
       imports: [
         'vue',
         // 'vue-router',
         // 'vue-i18n',
         // 'vue/macros',
-        // '@vueuse/head',
-        // '@vueuse/core',
-        // 'pinia',
+        '@vueuse/head',
+        '@vueuse/core',
+        'pinia',
       ],
       dirs: [
-        // 'src/composables',
-        // 'src/stores',
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+        'src/composables',
+        'src/utils',
+        'src/stores',
       ],
       vueTemplate: true,
       dts: 'auto-imports.d.ts',
@@ -82,18 +89,38 @@ export default defineConfig({
   ],
   vite: {
     plugins: [
+      // Update config as per your needs
+      // For details, refer to https://github.com/antfu/unplugin-vue-components#configuration
       AutoImportComponents({
-        // dirs: ['src/components'], // default
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+
+        dirs: ['src/components'],
+
+        // allow auto load markdown components under ./src/components/
+        // extensions: ['vue', 'jsx', 'tsx', 'js', 'ts', 'mdx', 'svelte']
+        extensions: ['vue', 'md'],
+
+        // allow auto import and register components used in markdown
+        // include: [/\.vue$/, /\.vue\?vue/, /\.mdx?/]
+        include: [/.vue$/, /.vue?vue/, /.md$/],
+
         // resolvers: [], // Auto-import using resolvers
+
+        // transformer: 'vue3',
+
         dts: 'components.d.ts',
       }),
       // VueDevTools()
     ],
     resolve: {
       alias: {
-        '~~': fileURLToPath(new URL('./', import.meta.url)),
-        '~': fileURLToPath(new URL('./src', import.meta.url)),
+        /* Must be either an object, or an array of { find, replacement, customResolver } pairs. */
+        /* Refer to: https://vitejs.dev/config/shared-options.html#resolve-alias */
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+
         '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '~': fileURLToPath(new URL('./src', import.meta.url)),
+        '~~': fileURLToPath(new URL('./', import.meta.url)),
       },
     },
   },

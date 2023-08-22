@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="mt-24 pb-12">
+  <div class="pb-12">
     <TheHeader>
       <div>
         <div class="flex items-center">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  import { isCurrentRoute } from '../composables/nav'
+  import { useNav } from '@/composables/nav'
+  const { currentLocation } = useNav()
 
   defineProps({
     navlinks: {
@@ -7,10 +8,6 @@
       default() {
         return []
       },
-    },
-    currentPath: {
-      type: String,
-      default: '/',
     },
   })
 </script>
@@ -23,7 +20,7 @@
         :to="navlink.link"
         :label="navlink.text"
         size="lg"
-        :variant="isCurrentRoute(navlink, currentPath) ? 'solid' : 'ghost'"
+        :variant="navlink.link === currentLocation.pathname ? 'solid' : 'ghost'"
         class="!rounded-lg"
       >
       </BaseButton>

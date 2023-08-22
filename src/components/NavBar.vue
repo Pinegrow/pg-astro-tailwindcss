@@ -2,7 +2,7 @@
   import { computed } from 'vue'
   import { useNav } from '../composables/nav'
 
-  const { navlinks, currentPath } = useNav()
+  const { navlinks, currentLocation } = useNav()
   const desktopNavTabs = computed(() => {
     return navlinks.value.slice(0, 2)
   })
@@ -26,9 +26,8 @@
                 >
               </a>
             </div>
-            <NavBarDesktopTabs
+            <NavBarDesktopMenu
               :navlinks="desktopNavTabs"
-              :current-path="currentPath"
               class="hidden sm:flex sm:ml-6"
             />
           </div>
@@ -42,17 +41,15 @@
             <NavBarMobileMenu
               class="hidden sm:flex sm:justify-end absolute right-0 mt-4"
               :navlinks="mobileNavTabs"
-              :current-path="currentPath"
             />
           </div>
         </div>
       </div>
-      <NavBarMobileMenu
-        class="sm:hidden"
-        :navlinks="navlinks"
-        :current-path="currentPath"
-      />
+      <NavBarMobileMenu class="sm:hidden" :navlinks="navlinks" />
     </nav>
+    <!-- <span class="flex justify-end container mx-auto pr-36 text-red-600">
+      Current Pathname: {{ currentLocation.pathname }}</span
+    > -->
   </div>
 </template>
 <style scoped></style>

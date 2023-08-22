@@ -43,7 +43,7 @@
       default: () => appConfig.ui.button.default.color,
       validator(value: string) {
         return [...colors, ...Object.keys(appConfig.ui.button.color)].includes(
-          value
+          value,
         )
       },
     },
@@ -54,7 +54,7 @@
         return [
           ...Object.keys(appConfig.ui.button.variant),
           ...Object.values(appConfig.ui.button.color).flatMap((value) =>
-            Object.keys(value)
+            Object.keys(value),
           ),
         ].includes(value)
       },
@@ -111,7 +111,7 @@
 
   // eslint-disable-next-line vue/no-dupe-keys
   const ui = computed<Partial<typeof appConfig.ui.button>>(() =>
-    defu({}, props.ui, appConfig.ui.button)
+    defu({}, props.ui, appConfig.ui.button),
   )
 
   const slots = useSlots()
@@ -150,7 +150,7 @@
   })
 
   const isSquare = computed(
-    () => props.square || (!slots.default && !props.label)
+    () => props.square || (!slots.default && !props.label),
   )
 
   const buttonClass = computed(() => {
@@ -169,7 +169,7 @@
       variant?.replaceAll('{color}', props.color),
       props.block
         ? 'w-full flex justify-center items-center'
-        : 'inline-flex items-center'
+        : 'inline-flex items-center',
     )
   })
 
@@ -193,7 +193,7 @@
     return classNames(
       ui.value.icon.base,
       ui.value.icon.size[props.size],
-      props.loading && 'animate-spin'
+      props.loading && 'animate-spin',
     )
   })
 
@@ -201,7 +201,7 @@
     return classNames(
       ui.value.icon.base,
       ui.value.icon.size[props.size],
-      props.loading && !isLeading.value && 'animate-spin'
+      props.loading && !isLeading.value && 'animate-spin',
     )
   })
 </script>

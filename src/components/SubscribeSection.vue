@@ -8,7 +8,7 @@
 </script>
 <template>
   <div
-    class="mt-24 pb-12 text-center bg-primary-600 dark:bg-primary-200 text-white dark:text-primary-800"
+    class="pb-12 text-center bg-primary-600 dark:bg-primary-200 text-white dark:text-primary-800"
   >
     <div class="container mx-auto px-4">
       <div class="-mx-4 flex flex-wrap">
