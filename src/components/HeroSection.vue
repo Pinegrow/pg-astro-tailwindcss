@@ -38,7 +38,8 @@
               target="_blank"
               trailing-icon="i-material-symbols-open-in-new"
               size="md"
-              ><span class="font-normal text-xl">Learn More</span>
+            >
+              <span class="font-normal text-xl">Learn More</span>
             </BaseButton>
           </div>
         </div>
