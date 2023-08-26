@@ -101,8 +101,7 @@ export default defineConfig({
         extensions: ['vue', 'md'],
 
         // allow auto import and register components used in markdown
-        // include: [/\.vue$/, /\.vue\?vue/, /\.mdx?/]
-        include: [/.vue$/, /.vue?vue/, /.md$/],
+        include: [/\.vue$/, /\.vue\?vue/, /\.mdx?/, /\.md/],
 
         // resolvers: [], // Auto-import using resolvers
 
