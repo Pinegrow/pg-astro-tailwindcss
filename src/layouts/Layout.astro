@@ -25,14 +25,14 @@ const currentPath = Astro.url.pathname
       <div
         class="flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
       >
-        <NavBar
+        <!-- <NavBar
           class={currentPath === '/' ? 'absolute bg-transparent z-10' : ''}
           client:load
-        />
-        <div class="shadow">
-          <slot />
-        </div>
-        <TheFooter />
+        /> -->
+        <!-- <div class="shadow"> -->
+        <slot />
+        <!-- </div> -->
+        <!-- <TheFooter /> -->
       </div>
     </div>
   </body>
