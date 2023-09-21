@@ -141,17 +141,17 @@ const pg_colors = {
   },
   neutral: {
     50: '#ebebeb',
-    100: '#b7b7b7',
-    200: '#868686',
-    300: '#585858',
-    400: '#2d2d2d',
-    500: '#000000',
-    600: '#000000',
-    700: '#000000',
-    800: '#000000',
-    900: '#000000',
-    950: '#000000',
-    DEFAULT: '#000000',
+    100: '#c4c4c4',
+    200: '#9f9f9f',
+    300: '#7b7b7b',
+    400: '#585858',
+    500: '#383838',
+    600: '#1b1b1b',
+    700: '#191919',
+    800: '#171717',
+    900: '#151515',
+    950: '#131313',
+    DEFAULT: '#101010',
   },
   success: {
     50: '#ecf0ec',
@@ -229,8 +229,21 @@ const pg_backgrounds = {
 /* prettier-disable */
 /* @ts-nocheck */
 
+const pg_font_urls = [
+  'https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900|Kalam:300,400,700&display=swap',
+]
+
+const pg_background_urls = {
+  'design-image':
+    'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMDkyMnwwfDF8c2VhcmNofDF8fHlvZGF8ZW58MHx8fHwxNjkwNDUxMjgyfDA&ixlib=rb-4.0.3&q=85',
+  'design-image-large':
+    'https://images.unsplash.com/photo-1618336753974-aae8e04506aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3wyMDkyMnwwfDF8c2VhcmNofDF8fHlvZGF8ZW58MHx8fHwxNjkwNDUxMjgyfDA&ixlib=rb-4.0.3&q=85',
+}
+
 module.exports = {
   pg_colors,
   pg_fonts,
+  pg_font_urls,
   pg_backgrounds,
+  pg_background_urls,
 }
