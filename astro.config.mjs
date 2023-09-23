@@ -21,6 +21,11 @@ export default defineConfig({
     // myAstroModule,
     vue({
       appEntrypoint: '/src/app',
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag === 'lite-youtube',
+        },
+      },
     }),
     Pinegrow({
       liveDesigner: {
