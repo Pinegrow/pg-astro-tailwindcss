@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  import site from '~/site'
   import { useHead, useSeoMeta } from 'unhead'
 
   import checkDarkTheme from '@/composables/dark-color-scheme-check?raw'
   import type { Script } from '@unhead/schema'
   type TurboScript = Script & { once: true }
 
+  import site from '~/site'
+  import image from '@/screenshots/image.jpg'
   import { pg_font_urls } from '~~/themes/pg-tailwindcss/tokens.mjs'
 
   const link: any = [
@@ -37,21 +38,31 @@
     )
   }
 
-  const { title, description } = site
+  const { title, description, url } = site
 
   useSeoMeta({
-    title,
-    ogTitle: title,
+    // title,
     description,
+    ogTitle: title,
     ogDescription: description,
-    ogImage: 'https://example.com/image.png',
-    twitterCard: 'summary_large_image',
+    ogImage: image,
+    ogImageAlt: title,
+    // og:image:width
+    // og:image:height
+    // og:image:alt
+    // og:image: type
+    // og:image: secure_url
+    ogUrl: url,
+    ogSiteName: title,
+    // og: locale
+    // og: type
   })
 
   useHead({
-    titleTemplate: (titleChunk) => {
-      return titleChunk ? `${titleChunk} - ${title}` : title
-    },
+    // title,
+    // titleTemplate: (titleChunk) => {
+    //   return titleChunk ? `${titleChunk} - ${title}` : title
+    // },
     htmlAttrs: { lang: 'en-US' },
     meta: [
       { property: 'charset', content: 'utf-8' },
@@ -60,21 +71,30 @@
         content: 'width=device-width, initial-scale=1',
       },
       { property: 'author', content: 'Pinegrow' },
+
+      {
+        property: 'twitter:title',
+        content: title,
+      },
+      {
+        property: 'twitter:description',
+        content: description,
+      },
       {
         property: 'twitter:image',
-        content: 'https://icons.vuetelescope.com/vue.svg',
+        content: image,
       },
       {
         property: 'twitter:image:alt',
-        content: 'Vue',
+        content: title,
       },
       {
         property: 'twitter:site',
-        content: '@pinegrow',
+        content: url,
       },
       {
         property: 'twitter:card',
-        content: 'summary',
+        content: 'summary_large_image',
       },
     ],
     script: [{ innerHTML: checkDarkTheme, once: true } as TurboScript],
