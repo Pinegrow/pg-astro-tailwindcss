@@ -2,9 +2,9 @@
   import { computed, useSlots } from 'vue'
   import type { PropType } from 'vue'
   import { defu } from 'defu'
-  import { classNames } from '../utils'
-  import { colors } from '../utils/colors'
-  import appConfig from '../ui'
+  import { classNames } from '@/utils'
+  import { colors } from '@/utils/colors'
+  import appConfig from '@/ui'
 
   const props = defineProps({
     type: {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue'
-  import { useNav } from '../composables/nav'
+  import { useNav } from '@/composables/nav'
 
   const { navlinks, currentLocation } = useNav()
   const desktopNavTabs = computed(() => {
