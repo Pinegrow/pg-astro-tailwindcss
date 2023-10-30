@@ -1,14 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwind from '@astrojs/tailwind'
-import react from '@astrojs/react'
 import preact from '@astrojs/preact'
+import solidJs from '@astrojs/solid-js'
+import react from '@astrojs/react'
 import svelte from '@astrojs/svelte'
-
 import Pinegrow from '@pinegrow/astro-module'
 import AutoImportComponents from 'unplugin-vue-components/vite'
 import AutoImportAPIs from 'unplugin-auto-import/astro'
@@ -25,12 +24,75 @@ export default defineConfig({
   site: url,
   integrations: [
     // myAstroModule,
+    vue({
+      appEntrypoint: '/src/app',
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag === 'lite-youtube',
+        },
+      },
+    }),
+    tailwind({
+      // Example: Disable injecting a basic `base.css` import on every page.
+      // Useful if you need to define and/or import your own custom `base.css`.
+      applyBaseStyles: false,
+    }),
+    preact({
+      include: ['**/preact/*'],
+    }),
+    react({
+      include: ['**/react/*'],
+    }),
+    solidJs({
+      include: ['**/solid/*'],
+    }),
+    svelte(),
+    Unocss({
+      presets: [
+        presetIcons({
+          prefix: 'i-', // default prefix, do not change
+        }),
+      ],
+      content: {
+        pipeline: {
+          include: ['./src/**/*'],
+        },
+      },
+    }),
+    mdx(),
+    sitemap(),
+    // For details, refer to https://github.com/antfu/unplugin-auto-import#configuration
+    AutoImportAPIs({
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/, // .md
+        /\.mdx$/, // .mdx
+      ],
+
+      imports: [
+        'vue',
+        // 'vue-router',
+        // 'vue-i18n',
+        // 'vue/macros',
+        // '@vueuse/head',
+        // '@vueuse/core',
+        'pinia',
+      ],
+      dirs: [
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+        'src/composables',
+        'src/utils',
+        'src/stores',
+      ],
+      vueTemplate: true,
+      dts: 'auto-imports.d.ts',
+    }),
     Pinegrow({
       liveDesigner: {
-        iconPreferredCase: 'unocss',
-        // default value (can be removed), unocss by default uses the unocss format for icon names
+        iconPreferredCase: 'unocss', // default value (can be removed), unocss by default uses the unocss format for icon names
         devtoolsKey: 'devtools', // see app.ts
-        // see app.ts
         tailwindcss: {
           configPath: 'tailwind.config.ts',
           cssPath: '@/assets/css/tailwind.css',
@@ -49,58 +111,6 @@ export default defineConfig({
         // ],
       },
     }),
-    vue({
-      appEntrypoint: '/src/app',
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => tag === 'lite-youtube',
-        },
-      },
-    }),
-    tailwind({
-      // Example: Disable injecting a basic `base.css` import on every page.
-      // Useful if you need to define and/or import your own custom `base.css`.
-      applyBaseStyles: false,
-    }),
-    react(),
-    preact(),
-    svelte(),
-    Unocss({
-      presets: [
-        presetIcons({
-          prefix: 'i-', // default prefix, do not change
-        }),
-      ],
-    }),
-    mdx(),
-    sitemap(),
-    // For details, refer to https://github.com/antfu/unplugin-auto-import#configuration
-    AutoImportAPIs({
-      include: [
-        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-        /\.vue$/,
-        /\.vue\?vue/, // .vue
-        /\.md$/, // .md
-        /\.mdx$/, // .mdx
-      ],
-      imports: [
-        'vue',
-        // 'vue-router',
-        // 'vue-i18n',
-        // 'vue/macros',
-        '@vueuse/head',
-        '@vueuse/core',
-        'pinia',
-      ],
-      dirs: [
-        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
-        'src/composables',
-        'src/utils',
-        'src/stores',
-      ],
-      vueTemplate: true,
-      dts: 'auto-imports.d.ts',
-    }),
   ],
   vite: {
     plugins: [
@@ -108,19 +118,15 @@ export default defineConfig({
       AutoImportComponents({
         /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
 
-        dirs: ['src/components'],
-
-        // allow auto load markdown components under ./src/components/
-        extensions: ['vue', 'md'],
-
-        // allow auto import and register components used in markdown
+        dirs: ['src/components'], // allow auto load markdown components under ./src/components/
+        extensions: ['vue', 'md'], // allow auto import and register components used in markdown
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.mdx?/],
-
         // resolvers: [], // Auto-import using resolvers
         dts: 'components.d.ts',
       }),
       // VueDevTools()
     ],
+
     resolve: {
       alias: {
         /* Must be either an object, or an array of { find, replacement, customResolver } pairs. */

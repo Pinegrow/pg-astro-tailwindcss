@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
-const name = "I'm a hero!"
+import Layout from '@/layouts/Layout.astro'
+import PageHome from '@/components/PageHome.vue'
 ---
 
 <Layout title="Home">
-  <span>A Fresh Start!</span>
+  <PageHome client:load />
 </Layout>
 
 <style></style>

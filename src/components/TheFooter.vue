@@ -7,7 +7,7 @@
   // })
 </script>
 <template>
-  <div class="pb-24 pt-12">
+  <footer class="pb-24 pt-12">
     <div class="container mx-auto px-8">
       <div class="flex flex-wrap justify-center space-x-8">
         <a
@@ -45,6 +45,6 @@
         </a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 <style scoped></style>
