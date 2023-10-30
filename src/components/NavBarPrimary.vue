@@ -9,6 +9,10 @@
         return []
       },
     },
+    currentPath: {
+      type: String,
+      default: '/',
+    },
   })
 </script>
 <template>
@@ -30,11 +34,11 @@
       target="_blank"
       to="https://vuedesigner.com"
       size="xl"
-      icon="i-mdi-pine-tree"
       color="secondary"
-      trailing
-    >
-      <span class="pl-2">Try Now</span>
+      ><span class="pl-2">Try Now</span>
+      <template #trailing>
+        <BaseIcon name="i-mdi-pine-tree" height="24px"></BaseIcon>
+      </template>
     </BaseButton>
   </div>
 </template>

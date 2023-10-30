@@ -10,7 +10,8 @@
     "
     class="!py-2 !rounded-lg leading-none"
     @click="openMobileMenu"
-    ><span class="sr-only">Open main menu</span>
+  >
+    <span class="sr-only">Open main menu</span>
   </BaseButton>
 </template>
 <style scoped></style>

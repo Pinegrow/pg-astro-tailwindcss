@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import '@/plugins/youtube.client'
   import vueDesignerLogo from '@/assets/images/vue-designer.svg'
   const showTitle = ref(true)
 </script>

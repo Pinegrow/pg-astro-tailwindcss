@@ -1,42 +1,42 @@
 ---
-import MetaTags from '../components/MetaTags.vue'
-import NavBar from '../components/NavBar.vue'
-import TheFooter from '../components/TheFooter.vue'
+import BaseHead from '@/components/BaseHead.astro'
 
-import '../assets/css/tailwind.css'
-import 'prismjs/themes/prism-tomorrow.css'
+import NavBar from '@/components/NavBar.vue'
+import TheFooter from '@/components/TheFooter.vue'
+import site from '@/site'
+
+const {name: SITE_TITLE, description: SITE_DESCRIPTION} = site
 
 export interface Props {
   title: string
 }
+
 const { title } = Astro.props
 const currentPath = Astro.url.pathname
 ---
+<script src="../plugins/youtube.client.ts"></script>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content="{Astro.generator}" />
-    <title>{title}</title>
+    <BaseHead title={title || SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <div class="relative">
-      <MetaTags client:load />
-      <div
-        class="flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
+    <div>
+      <!-- <div class="container mx-auto"> -->
+        <div
+      class="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
       >
         <NavBar
           class={currentPath === '/' ? 'absolute bg-transparent z-10' : ''}
           client:load
         />
-        <div class="shadow">
+        <main class="shadow">
           <slot />
-        </div>
+        </main>
         <TheFooter />
       </div>
+      <!-- </div> -->
     </div>
   </body>
 </html>

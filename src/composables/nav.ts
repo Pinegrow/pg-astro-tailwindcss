@@ -4,12 +4,24 @@ import { isClient, useBrowserLocation } from '@vueuse/core'
 
 export const useNav = () => {
   const navlinksFromConfig = site.nav
-  const navlinks = computed(() => navlinksFromConfig /* || navlinksFromRouter*/)
+  const navlinks = computed(() => navlinksFromConfig)
+
+  const navlinksPrimary = computed(() => {
+    return navlinks.value.filter(
+      (navlink) => !navlink.type || navlink.type === 'primary',
+    )
+  })
+
+  const navlinksSecondary = computed(() => {
+    return navlinks.value.filter((navlink) => navlink.type === 'secondary')
+  })
 
   const currentLocation = useBrowserLocation()
 
   return {
     navlinks,
+    navlinksPrimary,
+    navlinksSecondary,
     currentLocation,
   }
 }

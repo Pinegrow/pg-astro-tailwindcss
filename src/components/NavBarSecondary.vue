@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { useMobileMenu } from '@/composables/mobile-menu'
-  const { isMobileMenuOpen } = useMobileMenu()
   import { useNav } from '@/composables/nav'
+
   const { currentLocation } = useNav()
+  const { isMobileMenuOpen } = useMobileMenu()
 
   defineProps({
     navlinks: {
@@ -10,6 +11,10 @@
       default() {
         return []
       },
+    },
+    currentPath: {
+      type: String,
+      default: '/',
     },
   })
 </script>
