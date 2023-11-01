@@ -4,6 +4,7 @@ import BaseHead from '@/components/BaseHead.astro'
 // import NavBar from '@/components/NavBar.vue'
 // import TheFooter from '@/components/TheFooter.vue'
 import site from '@/site'
+import { heroImageUrl } from "@/utils/hero";
 
 const {name: SITE_TITLE, description: SITE_DESCRIPTION} = site
 
@@ -19,7 +20,7 @@ const currentPath = Astro.url.pathname
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={title || SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={title || SITE_TITLE} description={SITE_DESCRIPTION} image={heroImageUrl} />
   </head>
   <body>
     <div>
