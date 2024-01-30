@@ -4,9 +4,9 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwind from '@astrojs/tailwind'
-import preact from '@astrojs/preact'
+// import preact from '@astrojs/preact'
+// import react from '@astrojs/react'
 import solidJs from '@astrojs/solid-js'
-import react from '@astrojs/react'
 import svelte from '@astrojs/svelte'
 import Pinegrow from '@pinegrow/astro-module'
 import AutoImportComponents from 'unplugin-vue-components/vite'
@@ -37,12 +37,12 @@ export default defineConfig({
       // Useful if you need to define and/or import your own custom `base.css`.
       applyBaseStyles: false,
     }),
-    preact({
-      include: ['**/preact/*'],
-    }),
-    react({
-      include: ['**/react/*'],
-    }),
+    // preact({
+    //   include: ['**/preact/*'],
+    // }),
+    // react({
+    //   include: ['**/react/*'],
+    // }),
     solidJs({
       include: ['**/solid/*'],
     }),
@@ -92,7 +92,7 @@ export default defineConfig({
     Pinegrow({
       liveDesigner: {
         iconPreferredCase: 'unocss', // default value (can be removed), unocss by default uses the unocss format for icon names
-        devtoolsKey: 'devtools', // see app.ts
+        devtoolsKey: 'devtoolsKey', // see app.ts
         tailwindcss: {
           configPath: 'tailwind.config.ts',
           cssPath: '@/assets/css/tailwind.css',
