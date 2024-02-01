@@ -8,6 +8,8 @@
 //   window.devtoolsKey = devtools
 // }
 
+import 'uno.css'
+
 import type { App } from 'vue'
 import pinia from '@/plugins/pinia'
 
