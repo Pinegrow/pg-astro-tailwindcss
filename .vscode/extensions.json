@@ -3,6 +3,7 @@
     "astro-build.astro-vscode",
     "Vue.volar",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
   ]
 }
