@@ -1,0 +1,41 @@
+---
+import fg from 'fast-glob'
+export async function getStaticPaths() {
+    const _pages = await fg.glob('src/pages/**/*.vue',{
+      cwd: process.cwd(),
+      objectMode: true
+    })
+    const pages = _pages.map(({path, name}) => {
+      let pageName = name.slice(0,-4)
+      return {
+          params: { 
+            page: pageName==='index'? undefined: pageName,
+          },
+      }
+    })
+    return pages
+  // [
+  //   {params: {dog: 'clifford'}},
+  //   {params: {dog: 'rover'}},
+  //   {params: {dog: 'spot'}},
+  // ];
+}
+
+import Layout from '@/layouts/Layout.astro'
+
+let { page } = Astro.params;
+let pageName = page || 'index'
+
+// const PageContainer = await import(`./${pageName}.vue`)
+// const Page = PageContainer.default
+// console.log(Index)
+// console.log(Page)
+// console.log(Layout)
+import IndexPage from "./index.vue";
+---
+
+<Layout title="Home">
+  <IndexPage client:load />
+</Layout>
+
+<style></style>
