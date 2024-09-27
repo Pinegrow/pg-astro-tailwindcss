@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "astro dev",
     "now": "npm run build && npm run preview",
-    "lighthouse:dev": "npx unlighthouse --no-cache --site http://localhost:4321",
     "lighthouse": "npx unlighthouse --no-cache --site https://pg-astro-tailwindcss.netlify.app",
     "start": "astro dev",
     "build": "astro build",
