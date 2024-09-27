@@ -32,10 +32,10 @@ npm install #or use pnpm
 
 (or)
 
-If you prefer a blank template (a single empty home page) instead,
+If you prefer a minimal template (a single empty home page) instead,
 
 ```bash
-npx giget@latest gh:pinegrow/pg-astro-tailwindcss#blank my-astro-tailwindcss-app #project-name
+npx giget@latest gh:pinegrow/pg-astro-tailwindcss#minimal my-astro-tailwindcss-app #project-name
 cd my-astro-tailwindcss-app
 npm install #or use pnpm
 ```
