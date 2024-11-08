@@ -4,7 +4,7 @@
 
   defineProps({
     navlinks: {
-      type: Object,
+      type: Array,
       default() {
         return []
       },
