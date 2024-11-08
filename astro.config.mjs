@@ -1,6 +1,6 @@
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'events'
 // Increasing the maxListeners from default 10 to 15 as there are more than 10 vite plugins (mostly vite/astro) ones using fswatcher
-EventEmitter.defaultMaxListeners = 15;
+EventEmitter.defaultMaxListeners = 15
 
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'astro/config'
@@ -112,12 +112,11 @@ export default defineConfig({
       AutoImportComponents({
         /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
 
-        // dirs: ['src/components'], // allow auto load markdown components under ./src/components/
-        // globs: ['src/components/*.{vue}'],
-        // extensions: ['vue', 'md'], // allow auto import and register components used in markdown
-        // include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.mdx?/],
+        dirs: ['src/components'], // allow auto load markdown components under ./src/components/
+        extensions: ['vue', 'md'], // allow auto import and register components used in markdown
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.mdx?/],
         // resolvers: [], // Auto-import using resolvers
-        // dts: 'components.d.ts',
+        dts: 'components.d.ts',
       }),
       Unocss({
         presets: [
