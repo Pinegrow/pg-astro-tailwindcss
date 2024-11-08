@@ -1,13 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro'
 import ThePost from '@/components/ThePost.vue'
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('@/content/**/*.md')
+  const posts = await getCollection('quick-start');
 
   return posts.map((post) => ({
     params: {
-      slug: post.frontmatter.slug,
+      slug: post.slug,
     },
     props: {
       post,
@@ -15,7 +16,8 @@ export async function getStaticPaths() {
   }))
 }
 
-const { Content } = Astro.props.post
+const { post } = Astro.props
+const { Content } = await post.render()
 ---
 
 <Layout title="Quick start">

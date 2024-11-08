@@ -25,7 +25,7 @@ export default {
     },
     {
       text: 'Quick Start',
-      link: '/quick-start',
+      link: '/quick-start/index',
       type: 'primary',
       icon: 'i-mdi-home',
     },
