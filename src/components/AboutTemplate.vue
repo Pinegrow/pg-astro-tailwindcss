@@ -66,7 +66,7 @@
           <BaseButton
             label="Quick Start >"
             size="lg"
-            to="/quick-start"
+            to="/quick-start/index"
           ></BaseButton>
         </div>
       </div>
