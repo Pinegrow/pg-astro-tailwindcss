@@ -12,17 +12,17 @@
         "pg.code-validator",
         "pg.project.items",
         "pg.asset.manager",
-        "@vue/devtools",
         "app_designer",
         "vue",
         "astro",
         "@astrojs/vue",
-        "@pinegrow/astro-module",
         "@unocss/preset-icons",
+        "@pinegrow/astro-module",
         "unplugin-vue-components",
         "tw.flowbite",
         "tw",
-        "pg.html"
+        "pg.html",
+        "pine.cone.lib"
       ],
       "last_used_route": "/"
     },
@@ -308,33 +308,30 @@
     }
   },
   "template_framework_id": "vue",
-  "open-pages": [
-    "src/components/HeroSection.vue",
-    "src/components/AboutTemplate.vue"
-  ],
+  "open-pages": ["src/components/HeroSection.vue"],
   "breakpoints": ["640px", "768px", "1024px", "1280px", "1536px"],
   "frameworks": [
     "unplugin-auto-import",
-    "pg.insight.events",
     "vite-plugin-vue-devtools",
+    "pg.insight.events",
     "pg.vue.tree.painter",
-    "@vue/devtools",
+    "project",
     "pg.css.grid",
     "pg.image.overlay",
     "pg.code-validator",
-    "@unocss/preset-icons",
     "pg.project.items",
     "pg.asset.manager",
-    "unplugin-vue-components",
-    "project",
     "app_designer",
     "vue",
     "astro",
-    "@pinegrow/astro-module",
     "@astrojs/vue",
+    "@unocss/preset-icons",
+    "@pinegrow/astro-module",
+    "unplugin-vue-components",
     "tw.flowbite",
     "tw",
-    "pg.html"
+    "pg.html",
+    "pine.cone.lib"
   ],
   "urls": {
     "src/components/HeroSection.vue": {
