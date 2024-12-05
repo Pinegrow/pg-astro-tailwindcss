@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { useNav } from '@/composables/nav'
+  import { useNavMenu } from '@/composables/nav-menu'
 
   const { navlinks, navlinksPrimary, navlinksSecondary, currentLocation } =
-    useNav()
+    useNavMenu()
 </script>
 <template>
   <div class="w-full">

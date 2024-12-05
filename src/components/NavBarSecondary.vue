@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { useMobileMenu } from '@/composables/mobile-menu'
-  import { useNav } from '@/composables/nav'
+  import { useNavMenu } from '@/composables/nav-menu'
 
-  const { currentLocation } = useNav()
+  const { currentLocation } = useNavMenu()
   const { isMobileMenuOpen } = useMobileMenu()
 
   defineProps({

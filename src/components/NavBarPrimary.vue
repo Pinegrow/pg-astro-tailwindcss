@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { useNav } from '@/composables/nav'
-  const { currentLocation } = useNav()
+  import { useNavMenu } from '@/composables/nav-menu'
+  const { currentLocation } = useNavMenu()
 
   defineProps({
     navlinks: {
