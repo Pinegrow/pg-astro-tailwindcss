@@ -3,9 +3,9 @@
 
   defineProps({
     navs: {
-      type: Object,
+      type: Array,
       default() {
-        return {}
+        return []
       },
     },
     currentPath: {
