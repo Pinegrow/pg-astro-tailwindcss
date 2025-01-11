@@ -3,10 +3,10 @@ import BaseHead from '@/components/BaseHead.astro'
 
 // import NavBar from '@/components/NavBar.vue'
 // import TheFooter from '@/components/TheFooter.vue'
-import site from '@/site'
+import siteMeta from '@/site'
 import { heroImageUrl } from "@/utils/hero";
 
-const {name: SITE_TITLE, description: SITE_DESCRIPTION} = site
+const {title: SITE_TITLE, description: SITE_DESCRIPTION} = siteMeta
 
 export interface Props {
   title: string
@@ -14,6 +14,7 @@ export interface Props {
 
 const { title } = Astro.props
 const currentPath = Astro.url.pathname
+console.log(currentPath)
 ---
 <script>
   import 'uno.css'
@@ -33,6 +34,7 @@ const currentPath = Astro.url.pathname
       >
         <!-- <NavBar
           class={currentPath === '/' ? 'absolute bg-transparent z-10' : ''}
+          currentPath={currentPath}
           client:load
         /> -->
         <main class="shadow">

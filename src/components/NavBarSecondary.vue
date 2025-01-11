@@ -1,12 +1,8 @@
 <script setup lang="ts">
-  import { useMobileMenu } from '@/composables/mobile-menu'
-  import { useNavMenu } from '@/composables/nav-menu'
-
-  const { currentLocation } = useNavMenu()
   const { isMobileMenuOpen } = useMobileMenu()
 
   defineProps({
-    navlinks: {
+    navs: {
       type: Object,
       default() {
         return {}
@@ -26,18 +22,16 @@
     >
       <div class="space-y-1">
         <BaseButton
-          v-for="(navlink, index) in navlinks"
+          v-for="(nav, index) in navs"
           :key="index"
-          :to="navlink.link"
-          :variant="
-            navlink.link === currentLocation.pathname ? 'solid' : 'ghost'
-          "
+          :to="nav.to"
+          :variant="nav.to === currentPath ? 'solid' : 'ghost'"
           block
           class="!rounded-lg whitespace-nowrap"
           size="md"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
         >
-          <span class="w-full sm:text-center">{{ navlink.text }}</span>
+          <span class="w-full sm:text-center">{{ nav.title }}</span>
         </BaseButton>
       </div>
     </div>

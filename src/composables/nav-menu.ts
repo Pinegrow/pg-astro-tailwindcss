@@ -1,27 +1,21 @@
-import { computed } from 'vue'
-import site from '../site'
-import { isClient, useBrowserLocation } from '@vueuse/core'
+import siteMeta from '@/site'
+import { useBrowserLocation } from '@vueuse/core'
 
 export const useNavMenu = () => {
-  const navlinksFromConfig = site.nav
-  const navlinks = computed(() => navlinksFromConfig)
+  const navs = siteMeta.navs
 
-  const navlinksPrimary = computed(() => {
-    return navlinks.value.filter(
-      (navlink) => !navlink.type || navlink.type === 'primary',
-    )
+  const allNavs = Object.values(navs).reduce((acc, navMenu) => {
+    return [...acc, ...navMenu]
+  }, [])
+
+  const currentPath = computed(() => {
+    return useBrowserLocation().value.pathname
   })
-
-  const navlinksSecondary = computed(() => {
-    return navlinks.value.filter((navlink) => navlink.type === 'secondary')
-  })
-
-  const currentLocation = useBrowserLocation()
 
   return {
-    navlinks,
-    navlinksPrimary,
-    navlinksSecondary,
-    currentLocation,
+    allNavs,
+    navsPrimary: navs.primary,
+    navsSecondary: navs.secondary,
+    currentPath,
   }
 }
