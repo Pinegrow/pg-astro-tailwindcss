@@ -1,8 +1,12 @@
 <script setup lang="ts">
-  import { useNavMenu } from '@/composables/nav-menu'
+  defineProps({
+    currentPath: {
+      type: String,
+      default: '/',
+    },
+  })
 
-  const { navlinks, navlinksPrimary, navlinksSecondary, currentLocation } =
-    useNavMenu()
+  const { allNavs, navsPrimary, navsSecondary } = useNavMenu()
 </script>
 <template>
   <div class="w-full">
@@ -14,30 +18,30 @@
               <TheLogo />
             </div>
             <NavBarPrimary
-              :navlinks="navlinksPrimary"
-              :current-path="currentLocation.pathname"
+              :navs="navsPrimary"
+              :current-path="currentPath"
               class="hidden sm:flex sm:ml-6"
             />
           </div>
           <DarkModeSwitch />
           <div class="-mr-2 items-center relative">
             <NavBarHamburger
-              v-if="navlinksSecondary.length"
+              v-if="navsSecondary?.length"
               class="hidden sm:block"
             />
-            <NavBarHamburger v-if="navlinks.length" class="sm:hidden" />
+            <NavBarHamburger v-if="allNavs.length" class="sm:hidden" />
             <NavBarSecondary
               class="hidden sm:flex sm:justify-end absolute right-0 mt-4"
-              :navlinks="navlinksSecondary"
-              :current-path="currentLocation.pathname"
+              :navs="navsSecondary"
+              :current-path="currentPath"
             />
           </div>
         </div>
       </div>
       <NavBarSecondary
         class="sm:hidden"
-        :navlinks="navlinks"
-        :current-path="currentLocation.pathname"
+        :navs="allNavs"
+        :current-path="currentPath"
       />
     </nav>
   </div>
