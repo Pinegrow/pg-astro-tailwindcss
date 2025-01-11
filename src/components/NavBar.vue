@@ -31,6 +31,7 @@
             />
             <NavBarHamburger v-if="allNavs.length" class="sm:hidden" />
             <NavBarSecondary
+              v-if="navsSecondary?.length"
               class="hidden sm:flex sm:justify-end absolute right-0 mt-4"
               :navs="navsSecondary"
               :current-path="currentPath"
