@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import ThePost from '@/components/ThePost.vue'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('quick-start');
+  const posts = await getCollection('quick-start')
 
   return posts.map((post) => ({
     params: {
