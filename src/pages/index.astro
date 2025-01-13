@@ -1,9 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import PageHome from '@/components/PageHome.vue'
+
+const title = 'Home'
 ---
 
-<Layout title="Home">
+<Layout {title}>
   <PageHome client:load />
 </Layout>
 <style></style>

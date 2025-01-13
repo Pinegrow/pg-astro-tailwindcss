@@ -23,19 +23,17 @@
         size="lg"
         :variant="nav.to === currentPath ? 'solid' : 'ghost'"
         class="!rounded-lg"
-      >
-      </BaseButton>
+      />
     </div>
     <BaseButton
       class="ml-3"
       target="_blank"
       to="https://vuedesigner.com"
       size="xl"
+      icon="i-mdi-pine-tree"
       color="secondary"
+      trailing
       ><span class="pl-2">Try Now</span>
-      <template #trailing>
-        <BaseIcon name="i-mdi-pine-tree" height="24px"></BaseIcon>
-      </template>
     </BaseButton>
   </div>
 </template>

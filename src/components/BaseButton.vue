@@ -109,7 +109,6 @@
     },
   })
 
-  // eslint-disable-next-line vue/no-dupe-keys
   const ui = computed<Partial<typeof appConfig.ui.button>>(() =>
     defu({}, props.ui, appConfig.ui.button),
   )
@@ -212,7 +211,7 @@
     :aria-label="ariaLabel"
     v-bind="buttonProps"
   >
-    <slot name="leading"></slot>
+    <slot name="leading" />
     <BaseIcon
       v-if="isLeading && leadingIconName"
       :name="leadingIconName"
@@ -235,7 +234,7 @@
       aria-hidden="true"
       height="24px"
     />
-    <slot name="trailing"></slot>
+    <slot name="trailing" />
   </component>
 </template>
 <style scoped></style>

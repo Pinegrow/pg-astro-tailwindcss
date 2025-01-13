@@ -63,11 +63,7 @@
           Vue Designer.
         </p>
         <div class="flex justify-center lg:justify-start">
-          <BaseButton
-            label="Quick Start >"
-            size="lg"
-            to="/quick-start/index"
-          ></BaseButton>
+          <BaseButton label="Quick Start >" size="lg" to="/quick-start/index" />
         </div>
       </div>
     </div>
